@@ -1,0 +1,9 @@
+.task-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+button{
+    width: 60px;
+}
