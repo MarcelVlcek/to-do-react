@@ -1,9 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+body{
+    background-color: #2E8B57;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;;
+}
+
+h1{
+    font-family: 'Rubik Dirt', sans-serif;
+    font-size: 40px;
+    
+}
+
+article{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .task-form{
     display: flex;
     flex-direction: column;
+    
+    align-items: center;
     width: 300px;
 }
 
-button{
-    width: 60px;
+.todo-input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    background-color: inherit;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.todo-input::placeholder{
+    color:#4B4B4B ;
+}
+
+.submit-btn{
+    width: 80px;
+    background-color: yellowgreen;
+    padding: 8px 5px;
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+
+
+.task-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0E68C;
+    color: #4B4B4B;
+    width: 60%;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.delete-btn{
+    background-color: inherit;
+    cursor: pointer;
+    border: none;
 }

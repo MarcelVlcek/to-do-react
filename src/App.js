@@ -1,46 +1,52 @@
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
 
 const App = () => {
   const [task, setTask] = useState('')
-  const [allTasks, setAllTasks] = useState([])
-  
+  const [allTasks, setAllTasks] = useState(() => {
+    
+    const savedTasks = localStorage.getItem('tasks')
+    return savedTasks ? JSON.parse(savedTasks) : []
+  })
+
+  useEffect(() => {
+    
+    localStorage.setItem('tasks', JSON.stringify(allTasks))
+  }, [allTasks])
 
   const formSubmit = (event) => {
     event.preventDefault()
 
-    if(task){
-      setAllTasks( (allTasks) => {
-        return [...allTasks, task]
-      } )
-    }else{
-      console.log('Napíš niečo ty vajíčko');
+    if (task) {
+      setAllTasks((prevTasks) => [...prevTasks, task])
+      setTask('')
+    } else {
+      alert('Please enter a task')
     }
-
-    setTask("")
   }
+
 
   return (
     <article>
-      <h1>To do app</h1>
+      <h1>TO DO APP</h1>
       <form onSubmit={formSubmit} className="task-form">
         <input 
-          type="text" 
-          name="task" 
+          className='todo-input'
+          type="text"
+          name="task"
           placeholder="Add a new task"
+          autoComplete='off'
           value={task}
-          onChange={ (event) => setTask(event.target.value) }
+          onChange={(event) => setTask(event.target.value)}
         />
-
-        <input type="submit" />
+        <input type="submit" className='submit-btn' value='Add Task' />
       </form>
 
-      {allTasks.map( (oneTask, index) => {
-      return <p key={index}>{oneTask}</p>
-    } )}
-
+      {allTasks.map((oneTask, index) => (
+          <p className='task-item' key={index}>{oneTask}<button className='delete-btn' ><i className="fas fa-trash-alt"></i></button></p>
+       
+      ))}
     </article>
-  )
-}
+  );
+};
 
-export default App
+export default App;
