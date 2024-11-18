@@ -24,6 +24,12 @@ const App = () => {
     }
   }
 
+  const removeItem = (id) => {
+    setAllTasks((prevTasks) => prevTasks.filter((_, index) => index !== id));
+  }
+
+
+
 
   return (
     <article>
@@ -42,7 +48,7 @@ const App = () => {
       </form>
 
       {allTasks.map((oneTask, index) => (
-          <p className='task-item' key={index}>{oneTask}<button className='delete-btn' ><i className="fas fa-trash-alt"></i></button></p>
+          <p className='task-item' key={index}>{oneTask}<button className='delete-btn' onClick={() => removeItem(index)} ><i className="fas fa-trash-alt"></i></button></p>
        
       ))}
     </article>

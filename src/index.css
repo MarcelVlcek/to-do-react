@@ -33,6 +33,7 @@ article{
 }
 
 .todo-input{
+    color:#4B4B4B;
     border: none;
     outline: none;
     border-bottom: 1px solid black;
