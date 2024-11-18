@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import 'animate.css';
 
 const App = () => {
   const [task, setTask] = useState('')
@@ -48,8 +49,8 @@ const App = () => {
       </form>
 
       {allTasks.map((oneTask, index) => (
-          <p className='task-item' key={index}>{oneTask}<button className='delete-btn' onClick={() => removeItem(index)} ><i className="fas fa-trash-alt"></i></button></p>
-       
+          <p className='task-item animate__animated animate__pulse' key={index}>{oneTask}<button className='delete-btn' onClick={() => removeItem(index)} ><i className="fas fa-trash-alt"></i></button></p>
+          
       ))}
     </article>
   );

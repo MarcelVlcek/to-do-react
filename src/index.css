@@ -82,3 +82,7 @@ article{
     cursor: pointer;
     border: none;
 }
+
+.delete-btn:hover{
+    color: rgb(177, 16, 16);
+}
